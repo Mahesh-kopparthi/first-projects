@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        #display {
+            font-size: 20px;
+            background-color: #e1dddd;
+            height: 60px;
+            width: 200px;
+            border: 2px solid rgb(101, 38, 195);
+            padding: 12px;
+            box-sizing: border-box;
+            margin-right:16px;
+            
+        }
+
+        #dividers {
+            border: 6px solid rgb(56, 135, 208);
+            padding: 12px;
+            margin: 60px;
+            background-color: rgb(229, 240, 240);
+        }
+
+        .numbers {
+            font-size: 16px;
+            width: 60px;
+            height: 60px;
+            margin: 6px;
+            border:rgb(236, 118, 15);
+            background-color: #25df2e;
+            cursor: pointer;
+            padding: 6px;
+            
+        }
+        #Delete{
+            margin-left:6px;
+        }
+        .numbers:hover{
+            background: #c2f7c2;
+            transform:scale(1.2);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0.2);
+        }
+        
+        
+    </style>
+    <script>
+        function appendToDisplay(value) {
+            var display = document.getElementById('display');
+            display.value += value;
+        }
+        
+        function clearDisplay() {
+            var display = document.getElementById('display');
+            display.value = '';
+        }
+        
+        function calculate() {
+            var display = document.getElementById('display');
+            var result = eval(display.value);
+            display.value = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div align="center" id="dividers">
+        <input id="display" type="text" placeholder="+01234567890">
+        <button class="numbers" id ="Delete" onclick="clearDisplay()">DEL</button>
+        <br>
+        <button class="numbers" onclick="appendToDisplay('9')">9</button>
+        <button class="numbers" onclick="appendToDisplay('8')">8</button>
+        <button class="numbers" onclick="appendToDisplay('7')">7</button>
+        <button class="numbers" onclick="appendToDisplay('+')">+</button>
+        <br>
+        <button class="numbers" onclick="appendToDisplay('6')">6</button>
+        <button class="numbers" onclick="appendToDisplay('5')">5</button>
+        <button class="numbers" onclick="appendToDisplay('4')">4</button>
+        <button class="numbers" onclick="appendToDisplay('-')">-</button>
+        <br>
+        <button class="numbers" onclick="appendToDisplay('3')">3</button>
+        <button class="numbers" onclick="appendToDisplay('2')">2</button>
+        <button class="numbers" onclick="appendToDisplay('1')">1</button>
+        <button class="numbers" onclick="appendToDisplay('*')">*</button>
+        <br>
+        <button class="numbers" id="Zeros" onclick="appendToDisplay('0')">0</button>
+        <button class="numbers" id="module" onclick="appendToDisplay('%')">%</button>
+        <button class="numbers" id="divisions" onclick="appendToDisplay('/')">/</button>
+        
+        <button class="numbers" onclick="calculate()">=</button>
+        <br>
+       
+    </div>
+</body>
+</html>
